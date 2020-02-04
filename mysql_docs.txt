@@ -1,0 +1,261 @@
+			MYSQL
+*****************basic database commands******************
+
+create database database_name; 
+use database_name;
+show databases;
+drop database_name;
+describe/desc table_name;
+commit;------------to save information
+
+******************CREATE and INSERT******************************
+size optional for int
+varchar(size)
+create table table_name(coloum_1 datatype,coloum_2 datatype,...);
+string in '' or ""
+insert into table_name values(value1,value2,...);
+
+**********************select statement***************************
+
+select coloum1,coloum2 from table_name;
+select * from table_name;
+
+ **********************DISTINCT clause **************************
+
+select DISTINCT coloum1,coloum2 from table name;
+
+************************WHERE clause *****************************
+
+select * from table_name WHERE condition;
+select * from table_name WHERE condition OR condition AND condition
+
+************************IN and NOT IN ******************************
+
+select * from table_name WHERE coloun_name IN (value1,value2,...);
+select * from table_name WHERE coloun_name NOT IN (value1,value2,...);
+
+************************BETWEEN and NOT BETWEEN ***********************
+
+select * from table_name WHERE coloun_name BETWEEN start_value and end_value;
+select * from table_name WHERE coloun_name NOT BETWEEN start_value and end_value;
+
+************************ LIMIT ******************************************
+
+select * from table_name LIMIT index,count;
+
+***********************IS NULL and IS NOT NULL*************************
+
+select * from table_name WHERE coloun_name IS NULL;
+select * from table_name WHERE coloun_name IS NOT NULL;
+
+************************LIKE operator***********************************
+
+% = 0,1 or more
+_ = exactly one charecter
+select * from table_name WHERE coloun_name LIKE 'A%';   ---------starting with A
+select * from table_name WHERE coloun_name LIKE '_A%'; --------second letter is A
+
+**********************ORDER BY *****************************************
+
+select * from table_name ORDER BY coloum_name asc/desc;
+select * from table_name ORDER BY coloun_name1 asc,coloum_name2 desc ;
+custom sort --
+select * from table_name ORDER BY FIELD(coloum_name,value1,value2,value3,...);
+
+***********************JOINS *******************************************
+
+CROSS JOIN---
+select * from table_name1 CROSS JOIN table_name2;
+select * from table_name1 CROSS JOIN table_name2 WHERE condition;
+INNER JOIN----
+select t1.name,t2.dname from table_name1 t1 INNER JOIN table_name2 t2 ON t1.dept_id = t2.dept_id;
+select t1.name,t2.dname from table_name1 t1 INNER JOIN table_name2 t2 ON t1.dept_id = t2.dept_id where condition;
+LEFT JOIN----
+A-B in sets
+select t1.name,t2.dname from table_name1 t1 LEFT JOIN table_name2 t2 ON t1.dept_id = t2.dept_id;
+RIGHT JOIN ----
+B-A in sets
+select t1.name,t2.dname from table_name1 t1 RIGHT JOIN table_name2 t2 ON t1.dept_id = t2.dept_id;
+SELF JOIN -----
+no keyword, joins the table to itself
+mysql does not support FULL OUTER JOIN
+
+************************* GROUP BY *****************************************
+
+aggregate functions (SUM,AVG,MAX,MIN,COUNT)
+select SUM(coloum_name) from table_name;
+
+select coloum_name,count(*) from table_name GROUP BY coloum_name;
+         branch                                        branch
+select coloum_name1,SUM(colomn_name2) from table_name GROUP BY coloum_name1;
+        branch            marks                                  branch
+
+**************************SUBQUERY******************************************
+
+select coloum_name1 from table_name1 WHERE colomnname2 IN(select colomn_name3 from table_name2 WHERE colomn_name4 = value);
+       faculty_name       faculty           dept_id                dept_id          dept               dept_name
+
+EXISTS ---------if subquery executes even once outer query will fire
+NOT EXISTS ----------- if subquery executes even once outer query will not fire
+
+************************sets*********************************************
+
+UNION----- will not contain duplicate values
+select colomn1 form table1 UNION select colomn2 from table2;
+    faculty_name    faculty           student_name    student       
+UNION ALL --------will cotain duplicate values
+select colomn1 form table1 UNION ALL select colomn2 from table2;
+
+mysql does not support INTERSECT
+INTERSECT ---- will return commomn values
+
+mysql does not support MINUS
+MINUS ---- will return A MINUS B like sets
+
+*************************UPDATE DELETE********************************
+
+update table_name set col1=exp1,col2=exp2 where condition
+delete from table_name where condition limit value     
+
+************************** CONSTRAINTS*******************************
+1)NOT NULL ------------value cannot be NULL
+2)NULL ----------------values will be NULL
+3)UNIQUE ---------------once a value entered same value cannot be inserted again
+4)DEFAULT ---------------will give by default value.   syntax= DEFAULT value
+5)AUTO_INCREMENT -----------will increment the value by 1
+                            initial value is 1 and that colomn should be declared PRIMARY KEY
+mysql does not support CHECK constraint
+6)CHECK -----------------will force user to cosider specified condition
+			for ex CHECK(condition)
+
+**************************PRIMARY KEY FOREIGN KEY**********************
+PRIMARY KEY
+it must contain unique values
+it cant be null
+there is only one primary key in table
+
+colomn_name PRIMARY KEY ----- on single colomn
+,PRIMARY KEY(colomn1,colomn2,...) ----------on multiple colomns
+PRIMARY KEY after 
+alter table table_name 
+add PRIMARY KEY(colomn_name);
+
+FOREIGN KEY
+it is used to maintain the referential intigrity between tables
+mysql does not support foreign key can be used by specifying engine=InnoDB
+a table may have more than one foreign key
+
+,FOREIGN KEY(colomn_name_child_table) REFERENCES parent_table_name(colomn_name_with_primary_key);
+
+alter table table_name
+add foreign key(coloum_nmme) references parent_table_name(column_name);
+
+**************************ALTER DROP RENAME*********************************
+
+alter table table_name
+add column column_name datatype(size)
+after column_name;                   ----------optional
+
+alter table table_name
+modify column column_name datatype(size);
+
+alter table table_name
+drop column column_name;
+
+RENAME table_name1 to table_name2;
+
+TRUNCATE table table_name;
+
+DROP table table_name;
+
+****************************INDEX********************************************
+
+indexes are used for fast retrival of the data in dataabse
+by default indexes are created on primary key column
+by deafult BTREE index will be created 	
+
+create INEDEX INDEX_NAME ON table_name(column_name);
+
+show inedx from table_name\G
+
+drop index index_name from table_name;
+
+*******************************VIEWS*****************************************
+views are the virtual tables which are derrived from the actual physical tables
+simplifies complex queries
+limits data access
+provides extra security
+
+create VIEW VIEW_NAME 
+AS
+select * from table_name WHERE condition;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
