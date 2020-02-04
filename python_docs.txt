@@ -1,0 +1,434 @@
+****PYTHON*****
+
+1) Print statements-
+	
+	print("") or print('')
+	print(x)   ------will print the value of x
+
+	print() function will print the value on new line every fu**king time
+	so we have to use print(x, end" ") 
+
+	if we want to print the string as it is 
+	print(r"         ")    ---------------will print the raw string
+
+	print("a = {} and b = {} ".format(a,b))
+
+
+
+	
+2)Operators-
+
+a) arithmatic-
+ 
+%, /, *, +, -
+
+// for round off division
+** for power
+b) assignment-
+	=
+c) relational-
+	< ,>, <=, >=, ==, !=
+d) logical-
+
+	and, or, not
+e) bitwise-
+	complement = ~
+	bitwise and = &
+	bitwise or = |
+	bitwise xor = ^
+	left shift = <<  -----------gain bits
+	right shift = >> -----------lose bits
+	 
+
+3) '+' for string concatenation
+	
+   suppose 'you'+'tube' = youtube
+	
+	name='youtube'
+
+	we can fetch values like
+
+	name[0] ---------it will print 'y'
+	name[1] ----------'o'
+
+	name[-1] --------------will fetch last value of string
+	
+	name[1:] ---------------will print 'outube'
+
+	name[1:4] ---------------will print 'out'
+
+
+4) List-
+
+element of the list are muteble
+
+list = [] -------------------declaration of a list
+
+list_1 = [12,23,15,148,98]
+
+list_2 = [2.2,56.1,87.1]
+
+list_3 = ['ritesh','gaurav','rushi']
+
+we can also have list of different datatypes
+
+list_4 = [12,2.4,'ram']
+
+we can declare list inside list--------(nested lists)
+
+list_final = [list_1,list_2,list_3,list_4]
+
+we can fetch the values of list using indexing
+
+functions in list
+
+list.append() ------------ will insert at last location 
+list.insert(location,value) ---------will insert at specified location
+list.remove(value) -----------will remove the element
+list.pop(index) ---------will pop the element at given index
+list.pop() -------------will pop last element
+list.sort(key,reverse) -----------will sort
+
+	if we want to sort acoording to the list inside the list
+
+   ex=	list_f.sort(key= lambda x : x[0],reverse=True)  
+
+split function-
+
+	print(name.split('symbol or char or int')) -----will split according to value
+							default value ' '
+
+map function-
+
+	print(list(map(float,list_1 ))) ------will map list_1 value in float type
+
+len(list)
+max(list)
+min(list)
+sum(list)
+
+list.count(value)
+list.count(list[index])  ---------will return count
+del list[2:] -----------------------will delete all the elment after 2nd element in list including index 2
+list.extend(value1,value2,value3,..........) -------------------------------will add multiple values in list
+
+4)Tuple - 
+
+tuple = ()
+tuple's values are imutable
+tuple only supports two functions (indexing and count)
+
+5)Sets - 
+
+set = {}
+set always contains distinct values
+set does not support indexing
+  
+5) Variables- 
+
+id(variable_name) ------------------will print the address of variable
+type(variable_name) -----------------will return datatype of variable
+if you declare a variable in CAPITALS it shows your intension of keeping that varible constant
+in python we cannot declare contants
+
+6) Datatypes-
+
+a)none ----if some variable is not assigned to any value
+b)numeric(int,float,complex,bool)
+c)list
+d)tuple
+e)set
+f)string(str)
+g)range(start,end,difference)
+h)map/dictionary
+	
+	in dict keys cannot be repeated,values can
+	dict = {key1:value1,key2:value2}
+
+dict.keys() ----------------will fetch all keys
+dict.values() ---------------will fetch all values
+	
+dict[key] or dict.get(key)	
+
+7) conversion bet formats-
+
+a)bin(num) ---------------to convert into binary
+b)oct(num) ----------octal
+c)hex(num) ------------hexadecimal
+
+
+8) importing modules-
+
+for ex a) math module
+	import math or import math as m
+	functions(sqrt,pow,floor,ceil,pi,e)
+
+	from math import sqrt,pow ---------to import specific functions
+
+9) user input-
+
+	x = input("enter a input") ------------by default it will take string as input
+	x = int(input())
+	x = eval(input("enter a expression"))-----will evaluate given expression
+	
+	command line input
+
+	module sys
+	sys.argv[] ------------will give the input values
+	sys.argv[0] -----------is file name
+
+10) if_else-
+
+if(condition):
+	stmt
+elif(condition):
+	stmt
+else:
+	stmt
+
+11) loops-
+
+a) while-
+
+while(condition):
+	stmt
+	increment/decrement
+
+b) for-
+
+for i in range(start,end,difference)/list/tuple/string/set:
+	print(i)
+
+break ------------to come out of loop
+continue ----------to skip the part below it and continue the loop
+pass  --------------to pass the block
+
+we also have for_else in python
+
+for i in range:
+	stmt
+else:
+	stmt
+
+12) Array-
+
+	module array
+	import array or from array import *
+	datatypes
+	i -normal int array
+	f -float
+	d -double
+	u -char
+	I -unsigned array
+
+	vals = array('i',[value1,value2,...])
+
+functions(append,reverse,buffer_info,typecode)
+
+	new_arr =array(vals.typecode, (a for a in vals / a*a for a in vals))
+
+ 	vals = array('i',[]) --------------array declaration
+	val.index(value) -----------------return the index of searched value 
+
+	module numpy-----------two dimentional arrays
+	vals = array([value1,value2,.....],int/float)
+	vals = linspace(start,end,no of parts) ------create an array of starting from start ending on end and having no of parts elements
+	vals = arange(start,end,difference)
+	vals = zeros(n)-----------will create an array of n elements assigning each value to ZERO 
+	vals = ones(n)
+
+	.view() -------for shallow copy
+	.copy() ---------for deep copy
+
+	two dimentional array-
+
+	arr = array([
+			[1,2,3]-----first row
+			[3,5,5]------second row
+	])
+
+	arr.flatten()-------will convert two d array in 1 d array
+	arr.reshape(no_of_rows,col)--------will convert 1 d to 2 d arrray
+
+	m1 = matrix('1 2 3;3 4 5;6 7 8')
+	m2 = matrix('1 2 3;3 4 5;6 7 8')
+
+	m3 = m1+m2 or m1-m2 or m1*m2
+	
+
+13) Functions- 
+
+in python we can return multiple values
+
+def Function_name(parameters): -----------function Defination
+	stmt
+
+function_name(parameters) -----------------function call
+
+call by reference is not possible in python
+
+def Function_name(a,b): --------------noramal 
+def Function_name(a=value1,b=value2): -----------------default 
+def Function_name(a,*b): --------------here b can contain multiple values in the form of tuple
+def Function_name(a,**data): --------------here data can contain multiple values in the form of tuple with keys
+and access keys as well as values by 
+for i,j in data.items():
+	print(i,j)
+
+function_name(key1=value1,key2=value2) -------function call can also be made by giving keys if dont remember sequence
+
+Anonymous functions-
+	fun = lambda x : x*x
+	fun = lambda a,b: a+b
+
+	result = fun(x)
+	result = fun(a,b)
+
+filter()-
+evens = list(filter(lambda n : n%2==0,nums))-----------will give the list of even no from nums list
+map()-
+doubles = list(map(lambda n : n*2,nums))--------------will double every value from nums list
+reduce()-       functools module
+sum = reduce(lambda a,b: a+b,nums))-------------------will return the sum of all elements in nums list
+
+decorators-
+passing a function to another function
+
+name variable-
+if __name__=='__main__'
+
+
+14)Classes and Objects-
+
+class class_name: ----------------------class declaration
+	stmt
+
+com1 = class_name() -------------------object creation
+
+class_name.function_name(object) -------------function call 
+obj.function_name()
+
+init method- ------------------contructor in python
+
+def__init__(self,parameters):
+	stmt
+
+functions in class-
+def Function_name(self,parametrrs):
+	stmt
+
+	*instance Variables and class(static variables)-
+1)instance variables are normal variables which we declare inside __init__ and will be diffrent for every object
+2)class variables are static variables which we declare outside __init__ and will be shared among all the objects
+and we access them using class name
+
+	*instace methods, class methods and static methods-
+
+1) instance methods-
+normal method which takes self(object) as mandatory parameter and used to access instance variables
+2) class method-
+class method which takes cls(class) as the mandatory parameter and used to access class variables
+decorator @classmethod is used to declare the class method
+3) static method-
+static method does not have any mandatory paramrter and do not have anything to do with instance variables and class variables
+we just use it to do something exciting
+
+15)Inheritance-
+
+class A:
+	stmt
+
+class B(A): ----------------------here class B is inheriting class A (single inheritance)
+	stmt
+
+class C(B): ------------------------here class C is inheriting class B (multilevel inheritance)
+	stmt
+
+class D(A,B): ---------------------here class D is inheriting class A & B (multiple  inheritance)
+	
+if you create the object of sub class and you dont have constructor in sub class it will call the constucrtor of super class
+
+if you create the object of sub class and you have constructor in sub class it will onl ycall the constucrtor of sub class
+
+if you create the object of sub class and you have constructor in sub class as well as super class and you want to access both
+method SUPER() can be used to access that just use it in constructor of sub class it will call the constucrtor of super class and sub class
+
+in multiple inheritance it call the sub class contructor as well as the contructor of the parent class inherited first or is on the left side
+
+16)Extra Functions-
+
+str.isupper()
+str.islower()
+str1=str.upper()
+str1=str.lower()
+
+to convert list in string
+
+new =""
+for x in list:
+	new=new+x
+return new
+
+    print(s.isalnum())   
+    print(s.isalpha())
+    print(s.isdigit())
+    print(s.islower())
+    print(s.isupper()) -------all will return True if it is there else False
+
+
+bin(30)[2:].zfill(8)
+
+print(f"{i} {oct(i)[2:]} {hex(i)[2:]} {bin(i)[2:]}")
+ 
+
+a = {2, 4, 5, 9}
+>> b = {2, 4, 11, 12}
+>> a.union(b) # Values which exist in a or b
+{2, 4, 5, 9, 11, 12}
+>> a.intersection(b) # Values which exist in a and b
+{2, 4}
+>> a.difference(b) # Values which exist in a but not in b
+{9, 5}
+
+A.symmetric_difference(B)
+
+
+from collections import Counter
+>>> 
+counter = Counter()
+
+
+>>> myList = [1,1,2,3,4,5,3,2,3,4,2,1,2,3]
+>>> print Counter(myList)
+Counter({2: 4, 3: 4, 1: 3, 4: 2, 5: 1})
+>>>
+>>> print Counter(myList).items()
+[(1, 3), (2, 4), (3, 4), (4, 2), (5, 1)]
+>>> 
+>>> print Counter(myList).keys()
+[1, 2, 3, 4, 5]
+>>> 
+>>> print Counter(myList).values()
+[3, 4, 4, 2, 1
+
+complex no(z)
+z.real
+z.imag
+for polar coordinates(r,phi)
+r=sqrt(x^2+y^2)
+phi = phase(z)
+
+print(u"\u00b0")--------------for degree sign
+
+x = 12
+>>> isinstance(x, int) ---------to check a value whether it is int or float 
+True
+>>> y = 12.0
+>>> isinstance(y, float)
+True
+
+
+
+
+	
+
